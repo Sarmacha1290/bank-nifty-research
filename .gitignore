@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.env*
+!.env.example
+.venv/
+venv/
+*.db
+*.sqlite3*
+*.log
+*.zip
+*.csv
+data/
+reference/
+exports/
+backups/
+connection-status.json

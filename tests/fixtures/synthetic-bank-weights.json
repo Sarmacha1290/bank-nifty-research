@@ -1,0 +1,109 @@
+{
+  "index": "NIFTY Bank",
+  "as_of_date": "2026-09-30",
+  "retrieved_at_utc": "2026-10-04T02:00:00+00:00",
+  "source_url": "https://www.niftyindices.com/mock-fixture-not-a-real-source.json",
+  "source_pdf_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "reference_only": true,
+  "usage_note": "Invented test-only data. No exchange values, actual source PDF, or live data.",
+  "constituents": [
+    {
+      "symbol": "MOCKBANK01",
+      "company": "Invented Test Bank 1",
+      "close_price_reported": 151,
+      "index_mcap_crore_reported": 1001,
+      "weight_percent": 9.0
+    },
+    {
+      "symbol": "MOCKBANK02",
+      "company": "Invented Test Bank 2",
+      "close_price_reported": 152,
+      "index_mcap_crore_reported": 1002,
+      "weight_percent": 9.0
+    },
+    {
+      "symbol": "MOCKBANK03",
+      "company": "Invented Test Bank 3",
+      "close_price_reported": 153,
+      "index_mcap_crore_reported": 1003,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK04",
+      "company": "Invented Test Bank 4",
+      "close_price_reported": 154,
+      "index_mcap_crore_reported": 1004,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK05",
+      "company": "Invented Test Bank 5",
+      "close_price_reported": 155,
+      "index_mcap_crore_reported": 1005,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK06",
+      "company": "Invented Test Bank 6",
+      "close_price_reported": 156,
+      "index_mcap_crore_reported": 1006,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK07",
+      "company": "Invented Test Bank 7",
+      "close_price_reported": 157,
+      "index_mcap_crore_reported": 1007,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK08",
+      "company": "Invented Test Bank 8",
+      "close_price_reported": 158,
+      "index_mcap_crore_reported": 1008,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK09",
+      "company": "Invented Test Bank 9",
+      "close_price_reported": 159,
+      "index_mcap_crore_reported": 1009,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK10",
+      "company": "Invented Test Bank 10",
+      "close_price_reported": 160,
+      "index_mcap_crore_reported": 1010,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK11",
+      "company": "Invented Test Bank 11",
+      "close_price_reported": 161,
+      "index_mcap_crore_reported": 1011,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK12",
+      "company": "Invented Test Bank 12",
+      "close_price_reported": 162,
+      "index_mcap_crore_reported": 1012,
+      "weight_percent": 7.0
+    },
+    {
+      "symbol": "MOCKBANK13",
+      "company": "Invented Test Bank 13",
+      "close_price_reported": 163,
+      "index_mcap_crore_reported": 1013,
+      "weight_percent": 6.0
+    },
+    {
+      "symbol": "MOCKBANK14",
+      "company": "Invented Test Bank 14",
+      "close_price_reported": 164,
+      "index_mcap_crore_reported": 1014,
+      "weight_percent": 6.0
+    }
+  ]
+}

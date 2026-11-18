@@ -1,0 +1,32 @@
+# Bank Nifty agent roles and data gates
+
+This is one local Python research program with 14 **software roles**, not 14 paid AI model instances. A role is a visible responsibility and an input/output contract. **Prototype** means code can be demonstrated or checked offline; it does not mean predictive skill. **Planned** means no working source-specific engine yet. No role is trained or released for live forecasting or trading.
+
+All roles use one frozen information cutoff. Missing, late, ambiguous or unverified inputs remain missing. The Master cannot turn a rules score into a calibrated probability.
+
+| Role | Input and responsibility | Output / release gate | State |
+| --- | --- | --- | --- |
+| Data Quality | Groww index, bank and depth records; provider/exchange/receipt timestamps; reviewed session calendar. Reject malformed, stale and weak sampled minutes. | Accepted observations and explicit missing/failed coverage. Real-session validation pending. | Prototype |
+| Technical | Accepted point-in-time index samples; momentum, EMA, RSI, ATR and ADX rules plus a separate descriptive indicator library for returns, MACD, stochastic, bands, volatility and levels. | Separate descriptive 15/30/60-minute assessments. New indicators are research columns, not extra forecast score inputs; historical skill unknown. | Prototype |
+| Fundamentals | Point-in-time bank filings, results and corporate events from permitted sources. | Timestamped bank context only after source and publication-lag review. | Planned |
+| Index Contribution | Interval-valid NSE weights plus exactly aligned bank price changes. A separate recorded-history view now checks unweighted bank LTP movement at index endpoints without applying the dated weights. | Per-bank and residual weighted index contribution remains gated; the September weight reference alone cannot support live values. | Prototype |
+| Options & Futures | Bank Nifty option chain and separate catalogue-resolved futures quote snapshots. | Descriptive OI/volume, IV, Greek and structure calculations; bounded repeated option-chain and nearest-future collection are implemented and simulated offline. Live response review and predictive integration remain pending. | Prototype |
+| Institutional Flows | Parses user-supplied [NSE FII/FPI and DII capital-market report](https://www.nseindia.com/reports/fii-dii) CSV layout. Saves NSE-only and NSE/BSE/MSEI combined cash scopes separately with arithmetic checks, hashes and first local observation. | No input files are bundled. Manually imported records remain forecast-ineligible and never represent bank-specific or real-time orders. | Prototype |
+| News | Licensed/reliable linked bank and market news with publication timestamps. Manual source-linked CSV staging and first-seen cutoffs now exist. | Automated retrieval, source authentication, completeness and validated feature use are still pending; manual rows are forecast-ineligible. | Planned source engine |
+| Macro | Rates, currency and scheduled releases from timestamped permitted sources. Manual event-calendar staging and first-seen cutoffs now exist. | Official automatic retrieval and interval-valid release values still need source review; manual rows are forecast-ineligible. | Planned source engine |
+| Risk | Session, freshness, data quality and publication gates. | Abstain or permit experimental paper logging; no trading authorization. | Prototype |
+| Bull | Same frozen feature snapshot as Bear; supporting and contradictory upward evidence. | Explainable case, no probability. | Prototype |
+| Bear | Same frozen feature snapshot as Bull; supporting and contradictory downward evidence. | Explainable case, no probability. | Prototype |
+| Verification | Identity, timestamps, continuity and agent cutoff agreement. | Structural pass/fail; cannot certify provider truth or model skill. | Prototype |
+| Evaluation | Fixed predictions, exact later outcomes, missing-label coverage, chronological splits and baselines; separate descriptive expiry/pre-expiry/ordinary movement review. | Out-of-sample performance report before any forecast-release decision. No verified intraday performance yet. | Prototype |
+| Master | Combine only matching, verified 15/30/60 evidence and Risk result. | Abstain until qualified inputs and a separately validated forecasting model exist. | Prototype |
+
+## Data and training sequence
+
+1. NSE's archived **Nifty Bank daily OHLC** can support a past-only daily-range reference. The archive currently contains 185 rows; the 40-day rolling reference is exploratory and its intervals are too wide to claim accuracy. Daily OHLC cannot supply a 09:45 feature snapshot or exact 15/30/60-minute future labels.
+2. Groww's historical minute endpoint was audited, but recent responses were missing/partial and the timestamp convention remains unverified. It is not admitted as a training set yet. BSE Bankex is a different index and cannot be relabelled as Nifty Bank.
+3. Multiple five-minute Bank Nifty socket-feed trials stopped during setup before saving exchange-timestamped updates. A separate five-minute read-only Groww REST trial saved 60 laptop receipt-time prices, but Groww provided no exchange timestamps. Those rows are kept out of forecast training. A newly launched window can classify the next socket setup failure by its safe stage. Only after the index socket path passes should a separate short trial check bank quote fields, 14-bank coverage and concurrent recording. Quote buy/sell quantities are outstanding orders; cumulative volume has no executed buy-versus-sell classification.
+4. After enough verified sessions exist, freeze definitions for each horizon, derive labels at the exact target time, split by whole dates in chronological order, compare against simple baselines, and test calibration on untouched future dates. No numeric accuracy target is promised before these checks.
+5. Keep all raw records, source identifiers and evaluation results in the local archive. CSV exports and integrity-checked backups support review. No automatic order placement is implemented.
+
+The connection window offers an optional **14-bank volume and waiting orders** checkbox alongside the Bank Nifty index feed. It uses read-only quote sweeps every 15 seconds. This combined path passed simulated local checks but has **not** passed an open-market Groww test; the 14 reads are serial and do not form a simultaneous snapshot. Leave all optional bank and depth streams off for the next socket diagnostic trial, then test them in stages.

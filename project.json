@@ -1,0 +1,8 @@
+{
+  "version": "0.99.0-research",
+  "phase": "Source-only research preview; live-market validation and release are pending",
+  "provider": "Groww (optional, independently authorized)",
+  "distribution": "Source and invented test fixtures only; no historical, live, or provider reference data included",
+  "openai_runtime_calls": false,
+  "forecast_models_implemented": false
+}
